@@ -1,19 +1,21 @@
 package com.nimko.todo_user;
 
+
+import android.app.Fragment;
 import android.os.Bundle;
-import android.widget.Toast;
-import androidx.navigation.fragment.NavHostFragment;
-import com.google.android.material.snackbar.Snackbar;
-import androidx.appcompat.app.AppCompatActivity;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
+import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import com.nimko.todo_user.databinding.ActivityMainBinding;
 
-import android.view.Menu;
-import android.view.MenuItem;
+import com.google.android.material.snackbar.Snackbar;
+import com.nimko.todo_user.databinding.ActivityMainBinding;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -63,7 +65,8 @@ public class MainActivity extends AppCompatActivity {
         }
         if (id == R.id.login) {
             Toast.makeText(this, "Login", Toast.LENGTH_SHORT).show();
-
+            NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment_content_main);
+            navController.navigate(R.id.login4);
             return true;
         }
 
@@ -76,4 +79,6 @@ public class MainActivity extends AppCompatActivity {
         return NavigationUI.navigateUp(navController, appBarConfiguration)
                 || super.onSupportNavigateUp();
     }
+
+
 }
